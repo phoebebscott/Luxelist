@@ -2,6 +2,12 @@ Configuration Steps
 
 added shoulda-matchers test gem
 added bootstrap gem
-added jquery gem
 added BCrypt gem
 added paginate gem
+
+bundle install
+rails g rspec:install
+edit database.yml to remove passwords
+rake db:create
+rake db:migrate
+rake db:test:prepare
