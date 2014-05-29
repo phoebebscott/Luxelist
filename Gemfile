@@ -8,6 +8,8 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
+gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'jquery-rails', '~> 3.1.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -43,3 +45,12 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+	gem "rspec-rails"
+	gem "shoulda-matchers"
+end
+
+gem 'bcrypt-ruby', '3.0.1'
+
+gem 'will_paginate', '~> 3.0.5'

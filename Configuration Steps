@@ -1,0 +1,7 @@
+Configuration Steps
+
+added shoulda-matchers test gem
+added bootstrap gem
+added jquery gem
+added BCrypt gem
+added paginate gem
