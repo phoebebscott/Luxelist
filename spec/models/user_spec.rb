@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
     
+    # Not sure if this first test is necessary, given the individual tests below
     it "is a valid user that has a first name, email and password" do
 	  	person = User.new(first_name: "Jane", email: "jane@doe.com", password: "123456")
 	  	expect(person).to be_valid
