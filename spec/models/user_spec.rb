@@ -24,10 +24,16 @@ describe User do
   	end
 
   	it "is not a valid user without a unique email address" do
-  		person = User.new(email: "jane@doe.com")
-  		person2 = User.new(email: "jane@doe.com")
+  		person = User.new(first_name: "Jane", email: "jane@doe.com", password: "123456")
+  		person2 = User.new(first_name: "Jane", email: "jane@doe.com", password: "123456")
   		expect(person2).to be_invalid
   	end
+
+    # makes sure that user inputs an email address that exists using regex in model
+    it "is not a valid user without a complete and valid email address" do
+      person = User.new(first_name: "Jane", email: "janedoe.com", password: "123456")
+      expect(person).to be_invalid
+    end
 
   	it "is only a valid user if password length is at least six characters" do
   		person = User.new(first_name: "Jane", email: "jane@doe.com", password: "1234")
