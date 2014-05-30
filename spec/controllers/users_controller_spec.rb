@@ -36,7 +36,8 @@ describe UsersController do
 	    end
 	end
 
-	 describe "POST create" do
+
+	describe "POST create" do
 	    describe "successful create" do
 
 	    # this tests if the user is being saved to the db
@@ -52,27 +53,32 @@ describe UsersController do
 	        post :create, user: valid_attributes
 	        expect(response).to redirect_to users_path
 	      end
-     end
+    end
 
-	    # describe "unable to save" do
-	    #   let :invalid_attributes do
-	    #     {
-	    #       :flavor => nil,
-	    #       :quantity => nil,
-	    #       :topping => nil
-	    #     }
-	    #   end
 
-	    #   it "should not create any new records in the database" do
-	    #     expect do
-	    #       post :create, user: invalid_attributes
-	    #     end.to_not change(User, :count).by(1)
-	    #   end
+    describe "unable to save" do
+	    
+    	# Need to make the attributes invalid in order to test them. R-name to invalid and create one as nil because requires presence of is part of model.
+	    let :invalid_attributes do
+			{
+			:first_name => "Jane",
+			:email => "jane@doe.com",
+			:password => nil
+			}
+		end
 
-	    #   it "should rerender the new template" do
-	    #     post :create, user: invalid_attributes
-	    #     expect(response).to render_template :new
-	    #   end
-	    # end
+		# this tests if the user is being saved as a record in the database
+	    it "should not create any new records in the database" do
+	        expect do
+	          post :create, user: invalid_attributes
+	        end.to_not change(User, :count).by(1)
+	    end
+
+	    # this tests if the user is being shown the same page if they are not saved
+	    it "should rerender the new template" do
+	        post :create, user: invalid_attributes
+	        expect(response).to render_template :new
+	    end
+	end
 
 end
