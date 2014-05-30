@@ -24,7 +24,7 @@ describe User do
   	end
 
   	it "is not a valid user without a unique email address" do
-  		person = User.new(first_name: "Jane", email: "jane@doe.com", password: "123456")
+  		person = User.create(first_name: "Jane", email: "jane@doe.com", password: "123456")
   		person2 = User.new(first_name: "Jane", email: "jane@doe.com", password: "123456")
   		expect(person2).to be_invalid
   	end

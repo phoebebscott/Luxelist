@@ -1,0 +1,2 @@
+class QueryResultsController < ApplicationController
+end
