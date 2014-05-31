@@ -1,11 +1,10 @@
 Luxelist::Application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
-  # vvv why is there a nested route below vvv
   resources :users
-  resources :items do
-    resources :query_results
-    resources :tags
-  end
+  resources :items 
+  # resources :query_results
+    # ^^this is't necessary^^
+  resources :favorites, only: [:create, :destroy]
   resources :queries
 
 
