@@ -4,8 +4,9 @@ Luxelist::Application.routes.draw do
   resources :items 
   # resources :query_results
     # ^^this is't necessary^^
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:index, :show, :new, :create, :destroy]
   resources :queries
+  resources :query_results, only: [:new, :create, :destroy]
 
 
 
