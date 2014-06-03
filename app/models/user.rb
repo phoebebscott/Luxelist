@@ -6,10 +6,15 @@ validates :password, length: {minimum: 6}
 validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/
 
 has_many :queries, through: :query_results
+<<<<<<< HEAD
 
 # not sure if we need the favorites, but think so(mk)
 has_many :favorites
 
+=======
+# not sure if we need the favorites, but think so(mk)
+has_many :favorites
+>>>>>>> dd83764d90e469c9de9b2a3bba8cb4242ed3c5f5
 has_many :items, through: :favorites
 
 
