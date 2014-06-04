@@ -1,9 +1,5 @@
- <div>
-  <%= form_tag items_path, :method => 'get' do %>
-    <%= text_field_tag :heading, params[:heading] %>
-    <%= submit_tag "Search", :name => nil %>
-    <% end %>
-</div>
+<!-- This is a carousel containing today's most popular items
+It is viewable to logged-out and logged-in users -->
 
 <ul class="example-orbit" data-orbit>
   <li>
@@ -25,6 +21,8 @@
     </div>
   </li>
 </ul>
+
+<!-- This is a light box displaying the logged-in user's tagged items -->
 
 <ul class="clearing-thumbs clearing-feature" data-clearing>
   <li style="background:url(/assets/images/tag.png) center center; background-size: cover;"></li>
