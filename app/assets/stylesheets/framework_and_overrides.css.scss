@@ -12,15 +12,47 @@
 
 .top-bar {
   background-color: black;
+  font-family: "Avenir Next";
 }
 
 .top-bar-section {
   margin-top: 0px;
 }
 
-.li.has-form {
+.top-bar .has-form {
   background-color: black;
 }
+
+.top-bar-section li.active:not(.has-form) a:not(.button){
+  background-color: black;
+  font-family: "Avenir Next";
+  color: #eee;
+  &:hover{background-color: #474747;}
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  font-family: "Avenir Next";
+  color: #eee;
+  & img {height: 40px;}
+  &:hover{background-color: #474747;}
+}
+
+.orbit-container .orbit-slides-container img {
+  margin: auto;
+}
+
+.orbit-container .orbit-slides-container > li.active {
+  margin: auto;
+  margin-top: 20%;
+}
+
+.orbit-container .orbit-slides-container > li .orbit-caption {
+  text-align: center;
+  background-color: rgba(238,238,238,.8);
+  color: #474747;
+}
+
+.orbit-container .orbit-bullets {display: none;}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
@@ -51,9 +83,14 @@
   }
 // apply styles to HTML elements
 // to make views framework-neutral
+body {
+  font-family: "Avenir Next";
+}
+
 main {
   @include twelve-columns;
-  background-color: #eee;
+  background-color: #fff;
+  height: 100%;
   }
 section {
   @extend .row;
