@@ -1,19 +1,32 @@
 <ul class="right">
-  <li class="has-form"><input type="text" placeholder="Email"></li>
+<%= form_for :session, :url => sessions_path do |f| %>
+  <li class="has-form"><%=f.text_field :email, :placeholder => "email" %></li>
   <li class="has-form"><input type="password" placeholder="Password"></li>
   <li class="divider"></li>
-  <li class="active"><a href="#" >Sign Up</a></li>
-  <li class="divider"></li>
-  <li class="active"><a href="#" >Sign In</a></li>
-  <li class="divider"></li>
-  <li class="has-dropdown">
-    <a href="#"data-dropdown="dropmenu"><img src="http://imgur.com/1AwQUsY.png"/></a>
-      <ul id="dropmenu" class="f-dropdown" data-dropdown-content>
-        <li><label>Edit Profile</label></li>
-        <li><label>View Tags</label></li>
-        <li class="divider"></li>
-        <li><label>Sign Out</label></li>
-      </ul>
-  </li>
+
+    <li class="active"><a href="#" >Sign In</a></li>
+<% end %>
+    <li class="divider"></li>
+    <li class="active"><a href="#" data-reveal-id="myModal">Create a New Account</a>
+      <div id="myModal" class="reveal-modal" data-reveal>
+        <h2>Get Started on Luxeli.st!</h2>
+        <p class="lead"></p>
+        <%= render 'users/new' %>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+    </li>
+  <% if !@current_user %>
+  <% else %>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#"data-dropdown="dropmenu"><img src="http://imgur.com/1AwQUsY.png"/></a>
+        <ul id="dropmenu" class="f-dropdown" data-dropdown-content>
+          <li><label>Edit Profile</label></li>
+          <li><label>View Tags</label></li>
+          <li class="divider"></li>
+          <li><label><% link_to "Sign Out", session_path(:remember_token), :method => :delete %></label></li>
+        </ul>
+    </li>
+  <% end %>
 </ul>
 
