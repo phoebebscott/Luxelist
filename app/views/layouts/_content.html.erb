@@ -1,19 +1,19 @@
 <!-- This is a carousel containing today's most popular items
 It is viewable to logged-out and logged-in users -->
 
-<ul class="example-orbit" data-orbit>
-  <div x-ng-app="items_app">
-    <div x-ng-controller="ItemCtrl">
+<div class="orbit-container">
+  <ul data-orbit class="example-orbit orbit-slides-container" x-ng-app="items_app" x-ng-controller="ItemCtrl">
       <li class = "active" x-ng-repeat="item in items track by $index">
-        <img src="{{ item.images[0].full }}" />
+        <img x-ng-src="{{ item.images[0].full }}" />
         <div class="orbit-caption">
           {{item.heading}}
           Price: ${{item.price}}
           Location: {{item.location.city}}
         </div>
       </li>
-    </div>
-  </div>
+  </ul>
+</div>
+
 <!--  
   <li class="active">
     <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSOkA0HXyZ5CU4ssDdqHX4HQJYJjVHSmy9gabBDCGk-QUNk-rCO" alt="slide 3" />
@@ -21,21 +21,4 @@ It is viewable to logged-out and logged-in users -->
       Mod Credenza.
     </div>
   </li> -->
-</ul>
 
-<!-- This is a light box displaying the logged-in user's tagged items -->
-<<<<<<< HEAD
-<!-- 
-<ul class="clearing-thumbs clearing-feature" data-clearing>
-  <li><a href="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2011/01/RetroModINHAB1.jpg"><img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2011/01/RetroModINHAB1.jpg-th"></a></li>
-  <li class="clearing-featured-img"><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOHjr45qw3vyyhCd07e_Tpuudm9IdwkWbAY4gwTpzubhMrh__"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOHjr45qw3vyyhCd07e_Tpuudm9IdwkWbAY4gwTpzubhMrh__-th"></a></li>
-  <li><a href="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg-th"></a></li>
-</ul>
-=======
-
-<!-- <ul class="clearing-thumbs" data-clearing>
-  <li style="max-width: 100px;"><a href="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png"><img src="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png"></a></li>
-  <li><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOHjr45qw3vyyhCd07e_Tpuudm9IdwkWbAY4gwTpzubhMrh__"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOHjr45qw3vyyhCd07e_Tpuudm9IdwkWbAY4gwTpzubhMrh__"></a></li>
-  <li><a href="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg"></a></li>
-</ul> -->
->>>>>>> master
