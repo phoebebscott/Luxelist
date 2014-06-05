@@ -16,6 +16,14 @@
 //= require angular
 //= require angular-resource
 //= require_tree .
+
 $(function() {
   $(document).foundation();
+});
+
+$(document).foundation({
+  dropdown: {
+    // specify the class used for active dropdowns
+    active_class: 'open'
+  }
 });
