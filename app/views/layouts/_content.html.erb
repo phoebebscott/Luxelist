@@ -3,27 +3,18 @@ It is viewable to logged-out and logged-in users -->
 <div ng-controller="CarouselDemoCtrl">
   <div style="height: 305px">
     <carousel interval="myInterval">
-      <slide ng-repeat="slide in slides" active="slide.active">
-        <img ng-src="{{slide.image}}" style="margin:auto;">
+      <slide ng-repeat="item in items" active="item.active">
+        <img ng-src="{{item.images[0].full}}" style="margin:auto;">
         <div class="carousel-caption">
-          <h4>Slide {{$index}}</h4>
-          <p>{{item.heading}}</p>
+          <h4>{{item.heading}}</h4>
+          <p>{{item.price}}</p>
+          <p>{{item.location.city}}
         </div>
       </slide>
     </carousel>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
-    </div>
-    <div class="col-md-6">
-      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
-      <br />Enter a negative number to stop the interval.
-    </div>
-  </div>
 </div>
-
-<ul class="example-orbit" data-orbit>
+<!-- <ul class="example-orbit" data-orbit>
   <div x-ng-app="items_app">
     <div x-ng-controller="ItemCtrl">
       <li class = "active" x-ng-repeat="item in items track by $index">
@@ -36,11 +27,4 @@ It is viewable to logged-out and logged-in users -->
       </li>
     </div>
   </div>
-<!--  
-  <li class="active">
-    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSOkA0HXyZ5CU4ssDdqHX4HQJYJjVHSmy9gabBDCGk-QUNk-rCO" alt="slide 3" />
-    <div class="orbit-caption">
-      Mod Credenza.
-    </div>
-  </li> -->
-</ul>
+</ul> -->
