@@ -31,10 +31,23 @@
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: black;
   font-family: "Avenir Next";
   color: #eee;
   & img {height: 40px;}
   &:hover{background-color: #474747;}
+}
+
+.top-bar-section ul.right li.has-dropdown ul#dropmenu.f-dropdown {
+  background-color: black;
+  & label {
+  background-color: black;
+  font-family: "Avenir Next";
+  color: #eee;
+  width: 100%;
+  margin-left: 5px;
+  &:hover{color: #474747;}}
+  & li {background-color: black; &:hover {background-color: black};}
 }
 
 .orbit-container .orbit-slides-container img {margin: auto;}
