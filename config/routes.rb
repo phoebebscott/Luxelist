@@ -1,7 +1,7 @@
 Luxelist::Application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
-  resources :users
-  resources :items 
+  resources :users, only: [:new, :create]
+  resources :items
   # resources :query_results
     # ^^this is't necessary^^
   resources :favorites, only: [:index, :show, :new, :create, :destroy]
