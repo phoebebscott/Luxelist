@@ -11,7 +11,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
 
 itemApp.factory('Item', ['$http', function($http) {
   console.log("before returning resource");
-  return $http({method: 'GET', url: 'http://search.3taps.com/?auth_token=a3d09bcb83580db63e9fd0cac1af5cac&rpp=100&retvals=external_id,category,heading,body,images,price,location,external_url&category=SFUR&heading=("sofa"))'});
+  return $http({method: 'GET', url: 'http://search.3taps.com/?auth_token=a3d09bcb83580db63e9fd0cac1af5cac&rpp=100&retvals=external_id,category,heading,body,images,price,location,external_url&category=SFUR&radius=15mi&lat=34.05256&long=-118.44193&price=1000..&heading=("sofa")'});
   console.log("after returning resource");
 }]);
 
