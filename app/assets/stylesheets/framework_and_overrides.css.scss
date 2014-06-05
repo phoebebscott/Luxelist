@@ -37,19 +37,19 @@
   &:hover{background-color: #474747;}
 }
 
-.orbit-container .orbit-slides-container img {
-  margin: auto;
-}
+.orbit-container .orbit-slides-container img {margin: auto;}
+
 
 .orbit-container .orbit-slides-container > li.active {
   margin: auto;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .orbit-container .orbit-slides-container > li .orbit-caption {
   text-align: center;
   background-color: rgba(238,238,238,.8);
   color: #474747;
+  margin-top: 20px;
 }
 
 .orbit-container .orbit-bullets {display: none;}
@@ -85,6 +85,32 @@
 // to make views framework-neutral
 body {
   font-family: "Avenir Next";
+}
+
+.container {
+  width: 80%;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.galleryItem {
+  color: #797478;
+  font: 10px/1.5 Verdana, Helvetica, sans-serif;
+  float: left;
+
+  width: 16%;
+  margin: 2% 2% 50px 2%;
+}
+
+.galleryItem h3 {
+  text-transform: uppercase;
+}
+
+.galleryItem img {
+  max-width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 main {
