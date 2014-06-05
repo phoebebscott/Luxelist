@@ -1,30 +1,16 @@
 <!-- This is a carousel containing today's most popular items
-It is viewable to logged-out and logged-in users -->
-<div ng-controller="CarouselDemoCtrl">
-  <div style="height: 305px">
-    <carousel interval="myInterval">
-      <slide ng-repeat="item in items" active="item.active">
-        <img ng-src="{{item.images[0].full}}" style="margin:auto;">
-        <div class="carousel-caption">
-          <h4>{{item.heading}}</h4>
-          <p>{{item.price}}</p>
-          <p>{{item.location.city}}
-        </div>
-      </slide>
-    </carousel>
-  </div>
-</div>
-<!-- <ul class="example-orbit" data-orbit>
-  <div x-ng-app="items_app">
-    <div x-ng-controller="ItemCtrl">
+It is viewable to logged-in users -->
+
+<div class="orbit-container">
+  <ul data-orbit class="example-orbit orbit-slides-container" x-ng-app="items_app" x-ng-controller="ItemCtrl">
       <li class = "active" x-ng-repeat="item in items track by $index">
-        <img src="{{ item.images[0].full }}" />
+        <img x-ng-src="{{ item.images[0].full }}" />
         <div class="orbit-caption">
           {{item.heading}}
           Price: ${{item.price}}
           Location: {{item.location.city}}
         </div>
       </li>
-    </div>
+    </ul>
   </div>
-</ul> -->
+
