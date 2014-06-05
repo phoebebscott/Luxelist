@@ -1,32 +1,69 @@
 class ItemsController < ApplicationController
-	before_action :set_item
+	before_action :set_item, :only => [:show, :edit, :update, :destroy]
+
+	respond_to :json, :html
 
 	def index
-		@items = Items.party(params[:heading])
+		@items = Item.all
+    	respond_with @items
 	end
 
 	def show
+		respond_with @item
 	end
 
 	def new
+		@items = Item.new
 	end
 
 	def create
-	end
+    	@item = Item.new(item_params)
 
-	def edit
-	end
+	    if @item.save
+	      respond_to do |format|
+	        format.html { redirect_to items_path }
+	        format.json { render json: @item, status: :created }
+	      end
+	    else
+	      respond_to do |format|
+	        format.html { render 'new' }
+	        format.json { render json: @item.errors, status: :unprocessable_entity }
+	      end
+	    end
+  	end
 
-	def update
-	end
+  def update
 
-	def destroy
-	end
+    if @item.update(item_params)
+      respond_to do |format|
+        format.html { redirect_to items_path }
+        format.json { render nothing: true, status: :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { render 'edit' }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-end
+  def destroy
+
+    @item.destroy
+
+    respond_to do |format|
+      format.html { redirect_to items_path }
+      format.json { render json: { head: :ok } }
+    end
+  end
 
 private
 # Use callbacks to share common setup or constraints between actions.
 	def set_item
 	  @item = Item.find(params[:id])
 	end
+
+	def item_params
+    params.require(:item).permit(:title, :price, :location)
+  	end
+end
