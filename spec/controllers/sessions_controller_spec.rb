@@ -3,9 +3,9 @@ require 'spec_helper'
 describe SessionsController do
   let! :user do
     User.create(
-    :first_name => "Will",
       :email => "will@will.com",
-      :password => "henry")
+      :password => "henry"
+      )
   end
 
   describe "GET 'new'" do
