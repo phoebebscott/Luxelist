@@ -1,9 +1,13 @@
 <%# navigation styled for Zurb Foundation 5 %>
-<nav class="top-bar">
+<nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="topbar icon"><a href="#"><img src="http://i.imgur.com/zcIInF2.jpg?1" style="width: 60px; overflow: hidden"/></a></li>
-    <li class="toggle-topbar icon"><a href="#"><span></span></a>
-        </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span style="font-family: Avenir Next; font-weight: normal;">MENU</span></a></li>
   </ul>
+
+  <section class="top-bar-section">
+  <!-- Right Nav Section -->
       <%= render 'layouts/navigation_links' %>
+    </li>
+  </ul>
 </nav>
