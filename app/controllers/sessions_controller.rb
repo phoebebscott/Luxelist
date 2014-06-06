@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		@user = User.find_by_email(params[:session][:email])
 
 		if @user && @user.authenticate(params[:session][:password])
-		  session[:remember_token] = @user.id
+		  session[:remember_token] = @user.id.to_s
 		  @current_user = @user
 		  flash[:success] = "Welcome!"
 		  redirect_to root_path
