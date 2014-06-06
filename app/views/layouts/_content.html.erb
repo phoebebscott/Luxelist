@@ -1,7 +1,3 @@
-<!-- This is a carousel containing today's most popular items
-It is viewable to logged-in users -->
-
-
 <div class="orbit-container">
   <ul data-orbit class="example-orbit orbit-slides-container" x-ng-app="items_app" x-ng-controller="ItemCtrl">
       <li class = "active" x-ng-repeat="item in items track by $index">
@@ -9,10 +5,10 @@ It is viewable to logged-in users -->
         <div class="orbit-caption">
           {{item.heading}}
           Price: ${{item.price}}
-          Location: {{item.location.city}}
+          Location: {{item.cityName}}
           <input type="button" x-ng-click="addFavorite(item);" value="Bookmark this!" class="button large">
         </div>
       </li>
-  </ul>
-</div>
+    </ul>
+  </div>
 

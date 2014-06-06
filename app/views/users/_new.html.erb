@@ -1,0 +1,10 @@
+<%= form_for User.new do |f| %>
+
+  <%= f.text_field :email, :placeholder => "email" %>
+  <%= f.text_field :password, :placeholder => "password (at least 6 characters)" %>
+  <%= f.text_field :password_confirmation, :placeholder => "confirm password" %>
+
+  <%= f.submit "Sign up", :class => "top-bar-button" %>
+
+<% end %>
+

@@ -1,7 +1,7 @@
 Luxelist::Application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
-  resources :users
-  resources :items 
+  resources :users, only: [:new, :create]
+  resources :items
   # resources :query_results
     # ^^this is't necessary^^
   resources :favorites, only: [:index, :show, :new, :create, :destroy]
@@ -14,7 +14,7 @@ Luxelist::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sessions#new'
+  root 'favorites#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -5,18 +5,17 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		@user = User.where(:email => params[:session][:email]).first
+		@user = User.find_by_email(params[:session][:email])
 
-		if @user == nil || !@user.authenticate(params[:session][:password])
-		  flash[:error] = "Invalid email/password combination"
-		  render 'new'
-		else
-		  session[:remember_token] = @user.id
+		if @user && @user.authenticate(params[:session][:password])
+		  session[:remember_token] = @user.id.to_s
 		  @current_user = @user
 		  flash[:success] = "Welcome!"
 		  redirect_to root_path
+		else
+		  flash[:error] = "Invalid email/password combination"
+		  render 'new'
 		end
-
 	end
 
 	def destroy

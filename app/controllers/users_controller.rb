@@ -12,17 +12,17 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			flash[:success] = "You have successfully signed up!"
-			redirect_to users_path
+			redirect_to new_sessions_path
 		else
 			render 'new'
 		end
 	end
-	
+
 
 protected
 
   def user_params
-    params.require(:user).permit(:first_name, :email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
 end
