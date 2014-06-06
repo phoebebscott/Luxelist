@@ -17,12 +17,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
     return $http({method: 'GET', url: 'http://search.3taps.com/?auth_token=a3d09bcb83580db63e9fd0cac1af5cac&rpp=100&retvals=external_id,category,heading,body,images,price,location,external_url&category=SFUR&radius=15mi&lat=34.05256&long=-118.44193&price=1000..&heading=("sofa")'});
   }]);
 
-  // wrapper around call to $resource, which calls the API. Jonny's suggestion...is this correct to add for favorites??
-  itemApp.factory('Favorite', ['$resource', function($resource) {
-    return $resource('/favorites/:id',
-       {id: '@id'},
-       {update: { method: 'PATCH'}});
-  }]);
+  
 
 // added Favorites detail to item controller per Jonny
   itemApp.controller('ItemCtrl', ['$scope', 'Item', 'Favorite', 'Location', function($scope, Item, Favorite, Location) {
@@ -46,6 +41,24 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
             });
           };
         });
+
+      $scope.favorites = [];
+
+      $scope.addFavorite = function(item) {
+        console.log(item);
+        $scope.newFavorite = new Favorite({favorite: {
+          external_id: item.external_id,
+          external_url: item.external_url,
+          image_url: item.images[0].full
+        }});
+
+        console.log($scope.newFavorite);
+
+        $scope.newFavorite.$save(function(item) {
+          // $scope.favorites.push(item);
+          console.log('Saved!!');
+        });
+      };
   }]);
 
   itemApp.factory('Location', ['$http', function($http) {
@@ -60,30 +73,12 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
     console.log("after returning location");
   }]);
 
-
-
-// Jonny worked with Mary to try to bring favorites into the Item Controller. Code is below.
-
-      // added to bring favorites into an array in the db
-//       $scope.favorites = [];
-
-//       $scope.addFavorite = function(item) {
-//         console.log(item);
-//         $scope.newFavorite = new Favorite({favorite: {
-//           external_id: item.external_id,
-//           external_url: item.external_url,
-//           image_url: item.images[0].full
-//         }});
-
-//         console.log($scope.newFavorite);
-
-//         $scope.newFavorite.$save(function(item) {
-//           // $scope.favorites.push(item);
-//           console.log('Saved!!');
-//         });
-//       };
-
-
+  // wrapper around call to $resource, which calls the API. Jonny's suggestion...is this correct to add for favorites??
+  itemApp.factory('Favorite', ['$resource', function($resource) {
+    return $resource('/favorites/:id',
+       {id: '@id'},
+       {update: { method: 'PATCH'}});
+  }]);
 
 //   $scope.addFavorite = function(item) {
 //     console.log(item);
