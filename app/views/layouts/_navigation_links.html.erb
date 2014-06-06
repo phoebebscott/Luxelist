@@ -15,8 +15,13 @@
     <li class="has-dropdown">
       <a href="#"data-dropdown="dropmenu"><img src="http://imgur.com/1AwQUsY.png"/></a>
         <ul id="dropmenu" class="f-dropdown" data-dropdown-content>
-          <li><label>Edit Profile</label></li>
-          <li><label>View Tags</label></li>
+          <li><label><a href="#" data-reveal-id="myModal">Edit Profile</a>
+            <div id="myModal" class="reveal-modal" data-reveal>
+                <h2>Edit Your Profile!</h2>
+                <p class="lead"></p>
+                <%= render 'users/new' %>
+                <a class="close-reveal-modal">&#215;</a>
+            </div></li>
           <li class="divider"></li>
           <li><label><% link_to "Sign Out", session_path(:remember_token), :method => :delete %></label></li>
         </ul>

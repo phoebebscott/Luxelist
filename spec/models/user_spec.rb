@@ -37,5 +37,7 @@ describe User do
   		expect(person).to be_invalid
   	end
 
+    it { should have_many(:favorites) }
+    it { should have_many(:items) }
 
 end
