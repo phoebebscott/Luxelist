@@ -86,3 +86,21 @@ itemApp.factory('Location', ['$http', function($http) {
   console.log("after returning location");
 }]);
 
+    $scope.addFavorite = function(item) {
+      console.log(item);
+      $scope.newFavorite = new Favorite({favorite: {
+        external_id: item.external_id,
+        external_url: item.external_url,
+        image_url: item.images[0].full
+      }});
+
+      console.log($scope.newFavorite);
+
+      $scope.newFavorite.$save(function(item) {
+        // $scope.favorites.push(item);
+        console.log('Saved!!');
+      });
+
+    }
+}]);
+
