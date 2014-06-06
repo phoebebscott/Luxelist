@@ -6,6 +6,7 @@
           {{item.heading}}
           Price: ${{item.price}}
           Location: {{item.cityName}}
+          <input type="button" x-ng-click="addFavorite(item);" value="Bookmark this!" class="button large">
         </div>
       </li>
     </ul>

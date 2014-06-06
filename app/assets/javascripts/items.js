@@ -3,7 +3,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
     var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
     var defaults = $httpProvider.defaults.headers;
 
-    //defaults.common["X-CSRF-TOKEN"] = authToken;
+    // defaults.common["X-CSRF-TOKEN"] = authToken;
     defaults.patch = defaults.patch || {};
     defaults.patch['Content-Type'] = 'application/json';
     defaults.common['Accept'] = 'application/json';
@@ -15,9 +15,41 @@ itemApp.factory('Item', ['$http', function($http) {
   console.log("after returning resource");
 }]);
 
-itemApp.controller('ItemCtrl', ['$scope', 'Item', 'Location', function($scope, Item, Location) {
+// wrapper around call to $resource, which calls the API
+itemApp.factory('Favorite', ['$resource', function($resource) {
+  return $resource('/favorites/:id',
+     {id: '@id'},
+     {update: { method: 'PATCH'}});
+}]);
+
+
+itemApp.controller('ItemCtrl', ['$scope', 'Item', 'Favorite', 'Location', function($scope, Item, Favorite, Location) {
+
     $scope.items= [];
-    console.log("in the controller");
+    $scope.favorites = [];
+
+    Item.success(function(data, status, headers, config) {
+      $scope.items = data.postings;
+    });
+
+
+    $scope.addFavorite = function(item) {
+      console.log(item);
+      $scope.newFavorite = new Favorite({favorite: {
+        external_id: item.external_id,
+        external_url: item.external_url,
+        image_url: item.images[0].full
+      }});
+
+      console.log($scope.newFavorite);
+
+      $scope.newFavorite.$save(function(item) {
+        // $scope.favorites.push(item);
+        console.log('Saved!!');
+      });
+
+    }
+}]);
 
      Item.success(function(data, status, headers, config) {
         $scope.items = data.postings;
@@ -35,7 +67,7 @@ itemApp.controller('ItemCtrl', ['$scope', 'Item', 'Location', function($scope, I
             });
           });
         };
-        
+
         console.log("here are the items");
         console.log($scope.items);
       });
@@ -50,17 +82,7 @@ itemApp.factory('Location', ['$http', function($http) {
     }
   };
   return Location;
-  
+
   console.log("after returning location");
 }]);
 
-// locationApp.controller('LocationCtrl', ['$scope', 'Location', function($scope, Location) {
-//     $scope.items= [];
-//     console.log("in the controller");
-
-//      Item.success(function(data, status, headers, config) {
-//         $scope.items = data.postings;
-//         console.log("here are the items");
-//         console.log($scope.items);
-//       });
-// }]);

@@ -1,26 +1,22 @@
 <!-- This is a carousel containing the user's taggeditems
 It is only viewable to logged-in users -->
 
-<!-- <ul class="example-orbit" data-orbit>
-  <li>
-    <img src="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png" />
-    <div class="orbit-caption"><img style="max-width: 100px" src="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png"/>
+  <div x-ng-repeat="i in images | filter:true">
+        <h2>Bookmark</h2>
+        <!-- <img src="{{item.images[0].full}}"> -->
+        <input type="checkbox" x-ng-model="i.bookmarked">
+      </div>
     </div>
-  </li>
-  <li class="active">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOHjr45qw3vyyhCd07e_Tpuudm9IdwkWbAY4gwTpzubhMrh__" alt="slide 2" />
-    <div class="orbit-caption"><img style="max-width: 100px" src="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png"/></div>
-  </li>
-  <li class="active">
-    <img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt="slide 3" />
-    <div class="orbit-caption"><img style="max-width: 100px" src="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png"/></div>
-  </li>
-</ul> -->
 
-<div class = "container">
-  <div class="galleryItem">
-    <a href="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png"><img src="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png" alt""></a>
-  </div>
+<div class = "container" ng-repeat="i in images | filter:true">
+    <div class="galleryItem">
+    <!-- <a href="{{item.images[0].full}}"><img src="{{item.images[0].full}}"></a> -->
+    </div>
+
+
+
+
+
   <div class="galleryItem">
     <a href="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
   </div>
