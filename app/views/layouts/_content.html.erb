@@ -10,6 +10,7 @@ It is viewable to logged-in users -->
           {{item.heading}}
           Price: ${{item.price}}
           Location: {{item.location.city}}
+          <input type="button" x-ng-click="addFavorite(item);" value="Bookmark this!" class="button large">
         </div>
       </li>
   </ul>
