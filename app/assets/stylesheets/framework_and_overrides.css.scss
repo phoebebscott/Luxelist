@@ -2,6 +2,15 @@
 @import "foundation";
 
 // override for the 'Home' navigation link
+
+.top-bar-button {
+  background-color: black;
+  color: white;
+  font-family: "Avenir Next";
+  border: none;
+  &:hover{background-color: #474747; cursor: pointer;}
+}
+
 .top-bar .name {
   font-size: rem-calc(13);
   line-height: 45px; }
@@ -18,6 +27,8 @@
 .top-bar-section {
   margin-top: 0px;
 }
+
+.top-bar-section ul li {background-color: black; }
 
 .top-bar .has-form {
   background-color: black;
