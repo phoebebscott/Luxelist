@@ -111,6 +111,13 @@ body {
   font-family: "Avenir Next";
 }
 
+.favorite {
+  background-image:url(http://i.imgur.com/JGBsx8v.png);
+  max-width: 100px;  
+  overflow: hidden;
+  background-repeat:no-repeat;
+}
+
 .container {
   width: 80%;
   margin: 30px auto;
