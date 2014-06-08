@@ -1,11 +1,9 @@
 var itemApp = angular.module('items_app', ['ngResource']).config(
-  
+
 // this is the function that makes an http request
   ['$httpProvider', function($httpProvider) {
-  var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
   var defaults = $httpProvider.defaults.headers;
 
-  // defaults.common["X-CSRF-TOKEN"] = authToken; ....this won't pull content from CL if it is not commented out. Might be preventing us from saving to the db?
   defaults.patch = defaults.patch || {};
   defaults.patch['Content-Type'] = 'application/json';
   defaults.common['Accept'] = 'application/json';
@@ -17,7 +15,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
     return $http({method: 'GET', url: 'http://search.3taps.com/?auth_token=a3d09bcb83580db63e9fd0cac1af5cac&rpp=100&retvals=external_id,category,heading,body,images,price,location,external_url&category=SFUR&radius=15mi&lat=34.05256&long=-118.44193&price=1000..&heading=("sofa")'});
   }]);
 
-  
+
 
 // added Favorites detail to item controller per Jonny
   itemApp.controller('ItemCtrl', ['$scope', 'Item', 'Favorite', 'Location', function($scope, Item, Favorite, Location) {
@@ -26,7 +24,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
         Item.success(function(data, status, headers, config) {
           $scope.items = data.postings;
 
-          
+
           locations = {}
           for (i=0; i<data.postings.length; i++) {
             locations[$scope.items[i].location.city] = locations[$scope.items[i].location.city] || []
@@ -46,7 +44,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
 
       $scope.addFavorite = function(item) {
         console.log(item);
-        $scope.newFavorite = new Favorite({favorite: {
+        $scope.newFavorite = new Favorite({item: {
           external_id: item.external_id,
           external_url: item.external_url,
           image_url: item.images[0].full
@@ -55,7 +53,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
         console.log($scope.newFavorite);
 
         $scope.newFavorite.$save(function(item) {
-          // $scope.favorites.push(item);
+          $scope.favorites.push(item);
           console.log('Saved!!');
         });
       };
@@ -75,9 +73,12 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
 
   // wrapper around call to $resource, which calls the API. Jonny's suggestion...is this correct to add for favorites??
   itemApp.factory('Favorite', ['$resource', function($resource) {
+    var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
+
     return $resource('/favorites/:id',
        {id: '@id'},
-       {update: { method: 'PATCH'}});
+       {update: { method: 'PATCH', headers: { "X-CSRF-TOKEN" : authToken }},
+        save: { method: 'POST', headers: { "X-CSRF-TOKEN" : authToken }}});
   }]);
 
 //   $scope.addFavorite = function(item) {
