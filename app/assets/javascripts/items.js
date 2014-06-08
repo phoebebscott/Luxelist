@@ -79,7 +79,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
     var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
 
     return $resource('/favorites/:id',
-       {id: '@id', external_id: '@item.external_id'},
+       {id: '@id', external_id: 'item.external_id'},
        {update: { method: 'PATCH', headers: { "X-CSRF-TOKEN" : authToken }},
         save: { method: 'POST', headers: { "X-CSRF-TOKEN" : authToken }}});
   }]);
