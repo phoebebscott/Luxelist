@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 		  session[:remember_token] = @user.id.to_s
 		  @current_user = @user
 		  flash[:success] = "Welcome!"
-		  redirect_to root_path
+		  redirect_to new_sessions_path
 		else
 		  flash[:error] = "Invalid email/password combination"
 		  render 'new'

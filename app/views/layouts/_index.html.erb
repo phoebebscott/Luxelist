@@ -1,0 +1,23 @@
+<div x-ng-app="items_app">
+
+  <div x-ng-controller="FavoritesController">
+
+    <ul class="example-orbit" data-orbit >
+        <li class="" x-ng-repeat="favorite in favorites track by $index">
+            <img x-ng-src="{{ favorite.images[0].full }}" />
+
+          <div class="orbit-caption">
+            {{favorite.heading}}
+            Price: ${{favorite.price}}
+            Location: {{favorite.cityName}}
+          <br>
+
+          </div>
+          <br>
+
+        </li>
+    </ul>
+
+  </div>
+
+</div>

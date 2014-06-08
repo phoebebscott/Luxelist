@@ -15,8 +15,12 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
+       <% if !current_user %>
+       <%= render 'layouts/index' %>
+       <% else %>
        <%= render 'layouts/content' %>
        <%= render 'layouts/favorites' %>
+       <% end %>
     </main>
   </body>
 </html>

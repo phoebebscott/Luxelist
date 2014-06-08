@@ -11,10 +11,10 @@
             Price: ${{item.price}}
             Location: {{item.cityName}}
           <br>
-          <div> 
-            <input class="top-bar-button" type="button" value="Favorite!" x-ng-click="addFavorite(item)"> 
-            <input class="top-bar-button" type="button" value="View on Craig's List" x-ng-click=""> 
-          </div>          
+          <div>
+            <input class="top-bar-button" type="button" value="Favorite!" x-ng-click="addFavorite(item)">
+            <a href="{{item.external_url}}" target="_blank"><input class="top-bar-button" type="button" value="View on Craig's List"></a>
+          </div>
 
           </div>
           <br>
