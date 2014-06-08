@@ -47,7 +47,10 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
         $scope.newFavorite = new Favorite({item: {
           external_id: item.external_id,
           external_url: item.external_url,
-          image_url: item.images[0].full
+          image_url: item.images[0].full,
+          heading: item.heading,
+          price: item.price,
+          location: item.cityName
         }});
 
         console.log($scope.newFavorite);
@@ -76,26 +79,12 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
     var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
 
     return $resource('/favorites/:id',
-       {id: '@id'},
+       {id: '@id', external_id: '@item.external_id'},
        {update: { method: 'PATCH', headers: { "X-CSRF-TOKEN" : authToken }},
         save: { method: 'POST', headers: { "X-CSRF-TOKEN" : authToken }}});
   }]);
 
-//   $scope.addFavorite = function(item) {
-//     console.log(item);
-//     $scope.newFavorite = new Favorite({favorite: {
-//       external_id: item.external_id,
-//       external_url: item.external_url,
-//       image_url: item.images[0].full
-//     }});
 
-//     console.log($scope.newFavorite);
-
-//     $scope.newFavorite.$save(function(item) {
-//       // $scope.favorites.push(item);
-//       console.log('Saved!!');
-//     });
-//   };
 
 
 

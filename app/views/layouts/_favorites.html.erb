@@ -1,21 +1,5 @@
-<!-- This is a list of items the user favorited. It is only viewable to logged-in users -->
-
-<!--Need to find the code that presents the images from CL here once the bookmark is selected...not sure if this is a start
-
-   <div x-ng-repeat="i in images | filter:true">
-        <img src="{{item.images[0].full}}">
-        <input type="" x-ng-model="i.bookmarked">
-      </div>
-    </div> -->
-
-<!-- <div class = "container" ng-repeat="i in images | filter:true">
-    <div class="galleryItem">
-     <a href="{{item.images[0].full}}"><img src="{{item.images[0].full}}"></a>
-    </div> -->
-
-
 <div id="myModal2" class="reveal-modal" data-reveal>
-  <%= render 'items/show' %>
+  <%= render 'favorites/show' %>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
