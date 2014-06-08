@@ -4,14 +4,21 @@
 
     <ul class="example-orbit" data-orbit >
         <li class="" x-ng-repeat="item in items track by $index">
-          <img x-ng-src="{{ item.images[0].full }}" />
+            <img x-ng-src="{{ item.images[0].full }}" />
+
           <div class="orbit-caption">
             {{item.heading}}
             Price: ${{item.price}}
             Location: {{item.cityName}}
-            <div favorite> 
-              <input type="button" value="Favorite!" x-ng-click="addFavorite(item)"> 
-            </div>
+          <br>
+          <div> 
+            <input class="top-bar-button" type="button" value="Favorite!" x-ng-click="addFavorite(item)"> 
+            <input class="top-bar-button" type="button" value="View on Craig's List" x-ng-click=""> 
+          </div>          
+
+          </div>
+          <br>
+
         </li>
     </ul>
 

@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
 	end
 
 	def show
-		respond_with @item
+		# @item = Item.find(params[:external_id, :external_url, :image_url])
+		# render json: Item.find(params[:external_id, :external_url, :image_url])
 	end
 
 	def new
