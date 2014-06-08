@@ -1,0 +1,34 @@
+<div x-ng-app="items_app">
+
+  <div x-ng-controller="ItemCtrl">
+
+	<div class="" x-ng-repeat="item in items track by $index">
+	    <div>
+	    	<h3>{{item.heading}}</h3>
+	    </div>
+	   	<div>
+	   	   <img x-ng-src="{{ item.images[0].full }}" />
+	   	</div>
+		<div>
+			<h4>Price: ${{item.price}}</h4>
+		</div>
+	   	<div>
+	   		<h4>Location: {{item.cityName}}</h4>
+	   	</div>
+	</div>
+
+  </div>
+
+</div>
+
+<br>
+<input class="top-bar-button" type="button" value="View on Craig's List" x-ng-click=""> 
+
+
+
+
+
+<!-- Possible other code to use: 
+_________________________________
+
+<a href="" ng-click="listItems()">Return to the item list</a> -->

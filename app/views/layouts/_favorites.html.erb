@@ -1,31 +1,40 @@
-<!-- This is a carousel containing the user's taggeditems
-It is only viewable to logged-in users -->
+<!-- This is a list of items the user favorited. It is only viewable to logged-in users -->
 
-  <div x-ng-repeat="i in images | filter:true">
-<!--         <h2>Bookmark</h2>
+<!--Need to find the code that presents the images from CL here once the bookmark is selected...not sure if this is a start
+
+   <div x-ng-repeat="i in images | filter:true">
         <img src="{{item.images[0].full}}">
-        <input type="checkbox" x-ng-model="i.bookmarked">
-      </div> -->
-    </div>
+        <input type="" x-ng-model="i.bookmarked">
+      </div>
+    </div> -->
 
-<div class = "container" ng-repeat="i in images | filter:true">
+<!-- <div class = "container" ng-repeat="i in images | filter:true">
     <div class="galleryItem">
-    <!-- <a href="{{item.images[0].full}}"><img src="{{item.images[0].full}}"></a> -->
-    </div>
+     <a href="{{item.images[0].full}}"><img src="{{item.images[0].full}}"></a> 
+    </div> -->
 
 
+<div id="myModal2" class="reveal-modal" data-reveal>
+  <%= render 'items/show' %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 
-  <div class="galleryItem">
-    <a href="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
-  </div>
-  <div class="galleryItem">
-    <a href="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
-  </div>
-  <div class="galleryItem">
-    <a href="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
-  </div>
-  <div class="galleryItem">
-    <a href="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
-  </div>
-  
+<div class="galleryItem">
+    <a href="" data-reveal-id="myModal2"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
+</div>
+
+<div class="galleryItem">
+    <a href="" data-reveal-id="myModal2"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
+</div>
+
+<div class="galleryItem">
+    <a href="" data-reveal-id="myModal2"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
+</div>
+
+<div class="galleryItem">
+    <a href="" data-reveal-id="myModal2"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
+</div>
+
+<div class="galleryItem">
+    <a href="" data-reveal-id="myModal2"><img src="http://www.washingtonpost.com/rf/image_606w/2010-2019/WashingtonPost/2013/11/27/LocalLiving/Images/32728-18_2.jpg" alt""></a>
 </div>
