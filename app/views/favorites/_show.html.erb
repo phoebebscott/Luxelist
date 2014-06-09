@@ -2,18 +2,18 @@
 
   <div x-ng-controller="ItemCtrl">
 
-	<div class="" x-ng-repeat="item in items track by $index">
+	<div class="" x-ng-repeat="favorite in favoritesAll track by $index">
 	    <div>
-	    	<h3>{{item.heading}}</h3>
+	    	<h3>{{favorite.heading}}</h3>
 	    </div>
 	   	<div>
-	   	   <img x-ng-src="{{ item.images[0].full }}" />
+	   	   <img x-ng-src="{{ favorite.image_url }}" />
 	   	</div>
 		<div>
-			<h4>Price: ${{item.price}}</h4>
+			<h4>Price: ${{favorite.price}}</h4>
 		</div>
 	   	<div>
-	   		<h4>Location: {{item.cityName}}</h4>
+	   		<h4>Location: {{favorite.cityName}}</h4>
 	   	</div>
 	</div>
 

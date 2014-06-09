@@ -3,8 +3,9 @@
   <div x-ng-controller="ItemCtrl">
 
     <ul class="example-orbit" data-orbit >
-        <li class="" x-ng-repeat="favorite in favorites track by $index">
-            <img x-ng-src="{{ favorite.image_url.full }}" />
+        <li class="" x-ng-repeat="favorite in favoritesAll track by $index">
+
+            <img x-ng-src="{{ favorite.image_url }}" />
 
           <div class="orbit-caption">
             {{favorite.heading}}
