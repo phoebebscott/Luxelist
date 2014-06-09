@@ -2,7 +2,13 @@
 @import "foundation";
 
 // override for the 'Home' navigation link
-
+.loginButton {
+  background-color: black;
+  font-family: "Avenir Next";
+  color: #eee;
+  border: none;
+  cursor: pointer;
+}
 .top-bar-button {
   background-color: black;
   color: white;
@@ -118,6 +124,7 @@ body {
   background-repeat:no-repeat;
 }
 
+// this css is for the favorite icon boxes
 .container {
   width: 80%;
   margin: 30px auto;
@@ -128,7 +135,6 @@ body {
   color: #797478;
   font: 10px/1.5 Verdana, Helvetica, sans-serif;
   float: left;
-
   width: 16%;
   margin: 2% 2% 50px 2%;
 }
@@ -144,6 +150,7 @@ body {
   border-radius: 5px;
 }
 
+// end of css for favorite icon boxes
 main {
   @include twelve-columns;
   background-color: #fff;

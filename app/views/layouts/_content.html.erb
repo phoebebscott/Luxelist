@@ -1,6 +1,10 @@
 <div x-ng-app="items_app">
 
   <div x-ng-controller="ItemCtrl">
+    <div id="myModal2" class="reveal-modal" data-reveal>
+    <%= render 'favorites/show' %>
+    <a class="close-reveal-modal">&#215;</a>
+    </div>
 
     <ul class="example-orbit" data-orbit >
         <li class="" x-ng-repeat="item in items track by $index">
@@ -21,9 +25,19 @@
 
         </li>
     </ul>
+    <ul class="example-orbit" data-orbit >
+        <li class="" x-ng-repeat="favorite in favoritesAll track by $index">
+            <a href="#" data-reveal-id="myModal2"><img x-ng-src="{{ favorite.image_url }}" /></a>
 
-  </div>
+          <div class="orbit-caption">
+            {{favorite.heading}}
+          <br>
+
+          </div>
+          <br>
+
+        </li>
+    </ul>
 
 </div>
-
-<!--; value="Bookmark this!" class="button small" -->
+</div>

@@ -21,7 +21,7 @@ def create
 
   # create a favorite and connect the "belongs to" relationship with user & item
   @favorite = Favorite.create(
-    user_id: current_user, #FIX THIS
+    user_id: @current_user,
     price: @item.price,
     external_id: @item.external_id,
     external_url: @item.external_url,
