@@ -12,7 +12,7 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
 
 // creates 'promise' to GET API search data
   itemApp.factory('Item', ['$http', function($http) {
-    return $http({method: 'GET', url: 'http://search.3taps.com/?auth_token=a3d09bcb83580db63e9fd0cac1af5cac&rpp=100&retvals=external_id,category,heading,body,images,price,location,external_url&category=SFUR&radius=15mi&lat=34.05256&long=-118.44193&price=1000..&heading=("sofa")'});
+    return $http({method: 'GET', url: 'http://search.3taps.com/?auth_token=a3d09bcb83580db63e9fd0cac1af5cac&rpp=100&retvals=external_id,category,heading,body,images,price,location,external_url&category=SFUR&has_image=1&radius=20mi&lat=34.05256&long=-118.44193&price=1000..&heading=("sofa")'});
   }]);
 
 
