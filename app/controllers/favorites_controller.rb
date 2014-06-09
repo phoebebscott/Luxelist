@@ -15,16 +15,20 @@ def new
 end
 
 def create
-# use the items to create favorites off of them. @item exists when there is an external id. .first is only pulling the first item id that is found vs. all of the possible external ids.
-	@item = Item.where(external_id: item_params[:external_id]).first
 
-# create item in the db so that can associate with a favorite.
-	if @item == nil
-		@item = Item.create(item_params)
-	end
+  # create item in the db so that can associate with a favorite.
+	@item = Item.create!(item_params)
 
-# create a favorite and connect the "belongs to" relationship with user & item
-	 @favorite = @item.favorites.new(user: current_user)
+  # create a favorite and connect the "belongs to" relationship with user & item
+  @favorite = Favorite.create(
+    user_id: current_user, #FIX THIS
+    price: @item.price,
+    external_id: @item.external_id,
+    external_url: @item.external_url,
+    image_url: @item.image_url,
+    heading: @item.title,
+    cityName: @item.location
+  )
 
 	#@favorite = Favorite.new(favorite_params)
 
@@ -49,7 +53,8 @@ protected
 
 # item params used here to connect item to favorites
 	def item_params
-    params.require(:item).permit(:external_id, :external_url, :image_url, :user_id)
+    params.require(:item).permit(:external_id, :external_url, :image_url, :user_id, :title, :price, :location
+)
   end
 
 end
