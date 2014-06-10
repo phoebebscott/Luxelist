@@ -2,13 +2,7 @@ Luxelist::Application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
   resources :items
-  # resources :query_results
-    # ^^this is't necessary^^
   resources :favorites, only: [:index, :show, :new, :create, :destroy]
-  resources :queries
-  resources :query_results, only: [:new, :create, :destroy]
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
