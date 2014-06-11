@@ -16,7 +16,6 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
   }]);
 
 
-
 // added Favorites detail to item controller per Jonny
   itemApp.controller('ItemCtrl', ['$scope', 'Item', 'Favorite', 'Location', function($scope, Item, Favorite, Location) {
 
@@ -92,8 +91,3 @@ var itemApp = angular.module('items_app', ['ngResource']).config(
        {update: { method: 'PATCH', headers: { "X-CSRF-TOKEN" : authToken }},
         save: { method: 'POST', headers: { "X-CSRF-TOKEN" : authToken }}});
   }]);
-
-
-
-
-
