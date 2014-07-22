@@ -5,6 +5,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Luxelist" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Luxelist" %>">
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href='http://fonts.googleapis.com/css?family=Niconne|Courgette|Radley' rel='stylesheet' type='text/css'>
     <%# Modernizr is required for Zurb Foundation %>
     <%= javascript_include_tag 'vendor/modernizr' %>
     <%= javascript_include_tag 'application' %>

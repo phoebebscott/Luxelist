@@ -18,12 +18,13 @@
 }
 
 .top-bar .name {
-  font-size: rem-calc(13);
+  font-size: rem-calc(25);
   line-height: 45px; }
 .top-bar .name a {
-  font-weight: normal;
+  font-weight: bold;
+  font-family: 'Cougette', cursive;
   color: white;
-  padding: 0 15px; }
+  padding: 5px 5px; }
 
 .top-bar {
   background-color: black;
