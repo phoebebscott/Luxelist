@@ -1,8 +1,8 @@
 <%= form_for User.new do |f| %>
 
   <%= f.text_field :email, :placeholder => "email" %>
-  <%= f.text_field :password, :placeholder => "password (at least 6 characters)" %>
-  <%= f.text_field :password_confirmation, :placeholder => "confirm password" %>
+  <%= f.password_field :password, :placeholder => "password (at least 6 characters)" %>
+  <%= f.password_field :password_confirmation, :placeholder => "confirm password" %>
 
   <div class="active"><%= f.submit "Sign up", :class => "top-bar-button" %></div>
 
